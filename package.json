@@ -3,7 +3,6 @@
   "description": "Test",
   "version": "0.0.0",
   "main": "bot.js",
-  "ownerID": "350427539493093377",
   "scripts": {
     "start": "node bot.js"
   },
