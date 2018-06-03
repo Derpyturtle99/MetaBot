@@ -12,7 +12,7 @@ client.on('message', message => {
   const gameSet = args.join(" ");
   
   // Say Command
-  if (command === '!say') {
+  if (command === '$say') {
        const sayMessage = args.join(" ");
       message.delete().catch(O_o=>{}); 
       message.channel.send(sayMessage);
