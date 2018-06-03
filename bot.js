@@ -36,6 +36,18 @@ client.on('message', message => {
       message.channel.send(sayMessage);
     }
   
+    // User Info Command
+  if (command === '$info') {
+      const embed = new Discord.RichEmbed()
+      .addField("Username:","test")
+      .addField("Status:", "test")
+      .addField("Bot:", "test")
+      .addField("Guild Join Date", "test")
+      .addField("Account Creation Date", "test")
+      .setFooter('Join dates may not be accurate if the member has rejoined')
+      .setColor(CCCCFF)
+      message.channel.sendEmbed(embed);
+  };
 
 
 
