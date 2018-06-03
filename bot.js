@@ -39,7 +39,7 @@ client.on('message', message => {
     // User Info Command
   if (command === '$info') {
       const embed = new Discord.RichEmbed()
-      .setThumbnail(https://cdn.discordapp.com/avatars/452937544271790080/9fde3dc91c0b379f8e57362c4173e665.png)
+      .setThumbnail('https://cdn.discordapp.com/avatars/452937544271790080/9fde3dc91c0b379f8e57362c4173e665.png')
       .addField("Username:","test")
       .addField("Status:", "test")
       .addField("Bot:", "test")
