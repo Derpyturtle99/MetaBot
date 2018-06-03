@@ -44,7 +44,7 @@ client.on('message', message => {
       .addField("Bot:", "test")
       .addField("Guild Join Date", "test")
       .addField("Account Creation Date", "test")
-      .setColor(CCCCFF)
+      .setColor(0xCCCCFF)
       .setFooter('Join dates may not be accurate if the member has rejoined')
       message.channel.sendEmbed(embed);
   }
