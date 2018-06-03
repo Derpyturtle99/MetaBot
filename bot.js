@@ -9,8 +9,7 @@ client.on('message', message => {
     const args = message.content.slice(process.prefix).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
     const gameSet = args.join(" ");
-    const ownerID = "350427539493093377"
-    if(message.author.id !== config.ownerID) return;
+    if(message.author.id !== "350427539493093377") return;
     
     if (command === '$setgame') {
         if (gameSet === 'reset' || message.content === '$setgame') {
