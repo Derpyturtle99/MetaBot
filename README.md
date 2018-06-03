@@ -1,0 +1,2 @@
+# MetaBot
+Discord.js MetaBot
