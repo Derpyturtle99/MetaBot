@@ -39,9 +39,9 @@ client.on('message', message => {
     // User Info Command
   if (command === '$info') {
       const embed = new Discord.RichEmbed()
-      .setImage('https://cdn.discordapp.com/avatars/452937544271790080/9fde3dc91c0b379f8e57362c4173e665.png')
-      .addField("Username:",`${message.author.username}#${message.author.discriminator}`)
-      .addField("Status:", "test")
+      .addField(`${message.author.avatar}#${message.author.username}#${message.author.discriminator}`)
+      .addField("Status:", `${message.author.status}`)
+      .addField("Current Game", `${message.author.showCurrentGame}`)
       .addField("Bot:", "test")
       .addField("Guild Join Date:", "test")
       .addField("Account Creation Date:", message.author.createdAt)
