@@ -44,13 +44,10 @@ client.on('message', message => {
       .addField("Bot:", "test")
       .addField("Guild Join Date", "test")
       .addField("Account Creation Date", "test")
-      .setFooter('Join dates may not be accurate if the member has rejoined')
       .setColor(CCCCFF)
+      .setFooter('Join dates may not be accurate if the member has rejoined')
       message.channel.sendEmbed(embed);
-  };
-
-
-
+  }
 
 });
 client.login(process.env.BOT_TOKEN);
