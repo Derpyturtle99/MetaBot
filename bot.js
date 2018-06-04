@@ -41,7 +41,7 @@ client.on('message', message => {
       const embed = new Discord.RichEmbed()
       .setTitle(`${message.author.avatar}${message.author.username}#${message.author.discriminator}`)
       .addField("Status:", message.author.presence.status)
-      .addField("Current Game", message.author.presence.game.name)
+      .addField("Current Game", message.author.presence.game)
       .addField("Bot:", message.bot)
       .addField("Guild Join Date:", message.guild.joinedAt.toDateString())
       .addField("Account Creation Date:", message.author.createdAt)
