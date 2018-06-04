@@ -60,7 +60,7 @@ client.on('message', message => {
             return ballAnswer[Math.floor(Math.random()*ballAnswer.length)];
         }
         if (message.content === '$8ball') {
-            return message.reply('please specify your quetion.');
+            return message.reply('Please specify your question.');
         }
         message.reply(doBall() + '.');
     };
