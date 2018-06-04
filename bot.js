@@ -101,7 +101,7 @@ client.on('message', message => {
       const userGame = user.presence.game;
       const mentionedEmbed = new Discord.RichEmbed()
       .setTitle(`${user.username}#${user.discriminator}`)
-      .addField("Status:", user.status)
+      .addField("Status:", user.presence.status)
       .addField("Bot:", user.bot)
       .addField("Game:", userGame !== null ? userGame.name : "none", true)
       .addField("Guild Join Date:", message.guild.joinedAt.toDateString())
