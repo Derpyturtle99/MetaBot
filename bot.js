@@ -104,7 +104,7 @@ client.on('message', message => {
       .addField("Status:", user.status)
       .addField("Bot:", user.bot)
       .addField("Game:", userGame !== null ? userGame.name : "none", true)
-      .addField("Guild Join Date:", user.joinedAt.toDateString())
+      .addField("Guild Join Date:", message.guild.joinedAt.toDateString())
       .addField("Account Creation Date:", user.createdAt)
       .setColor(0x9999FF)
       .setFooter('Join dates may not be accurate if the member has rejoined')
