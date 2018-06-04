@@ -61,6 +61,7 @@ client.on('message', message => {
         }
         if (message.content === '$8ball') {
             return message.reply('please specify your quetion.');
+        }
         message.reply(doBall() + '.');
     };
   
