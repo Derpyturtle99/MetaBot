@@ -47,7 +47,7 @@ client.on('message', message => {
     
     if (command === '$stream') {
         const streamSet = args.join(" ");
-        client.user.setPresence({ `${streamSet}`, 'https://www.twitch.tv/MetaBot'});
+        client.user.setPresence({ streamSet, 'https://www.twitch.tv/MetaBot'});
     }
     
       // Say Command
