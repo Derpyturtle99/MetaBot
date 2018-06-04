@@ -22,6 +22,12 @@ client.on('message', message => {
         }
     };
     
+    // Set Streaming
+    if {command === '$stream') {
+        const streamSet = args.join(" ");
+        client.user.setPresence({ 'ok', 'https://www.twitch.tv/MetaBot'});
+    };
+    
     // Set Status
     if  (command === '$status') {
         const statusSet = args.join(" ");
@@ -44,11 +50,6 @@ client.on('message', message => {
             message.reply('Please specify a status.')
         }
     };
-    
-    if (command === '$stream') {
-        const streamSet = args.join(" ");
-        client.user.setPresence({streamSet, 'https://www.twitch.tv/MetaBot'});
-    }
     
       // Say Command
   if (command === '$say') {
