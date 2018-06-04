@@ -85,12 +85,12 @@ client.on('message', message => {
     
     // User Info Command
   if (command === '$info') {
-      const userGame = message.author.presence.game;
+      const memberGame = message.author.presence.game;
       const unmentionedEmbed = new Discord.RichEmbed()
       .setTitle(`${message.author.username}#${message.author.discriminator}`)
       .addField("Status:", message.author.presence.status)
       .addField("Bot:", message.author.bot)
-      .addField("Game:", userGame !== null ? userGame.name : "none", true)
+      .addField("Game:", memberGame !== null ? memberGame.name : "none", true)
       .addField("Guild Join Date:", message.guild.joinedAt.toDateString())
       .addField("Account Creation Date:", message.author.createdAt)
       .setColor(0x9999FF)
