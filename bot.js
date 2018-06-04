@@ -39,10 +39,10 @@ client.on('message', message => {
     // User Info Command
   if (command === '$info') {
       const embed = new Discord.RichEmbed()
-      .addField(`${message.author.avatar}#${message.author.username}#${message.author.discriminator}`)
-      .addField("Status:", `${message.author.status}`)
+      .setTitle(`${message.author.avatar}${message.author.username}#${message.author.discriminator}`)
+      .addField("Status:", `${message.clientUserSettings.status}`)
       .addField("Current Game", `${message.author.showCurrentGame}`)
-      .addField("Bot:", "test")
+      .addField("Bot:", `${message.author.bot}`)
       .addField("Guild Join Date:", "test")
       .addField("Account Creation Date:", message.author.createdAt)
       .setColor(0x9999FF)
