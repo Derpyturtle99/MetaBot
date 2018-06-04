@@ -38,16 +38,16 @@ client.on('message', message => {
   
     // User Info Command
   if (command === '$info') {
+      const avatarTitle = message.author.avatar
       const userGame = message.author.presence.game;
       const embed = new Discord.RichEmbed()
-      .setTitle(`${message.author.avatar}${message.author.username}#${message.author.discriminator}`)
+      .setTitle(avatarTitle ${message.author.username}#${message.author.discriminator}`)
       .addField("Status:", message.author.presence.status)
       .addField("Bot:", message.author.bot)
-      .addField("Current Game", userGame !== null ? userGame.name : "None", true)
+      .addField("Game:", userGame !== null ? userGame.name : "None", true)
       .addField("Guild Join Date:", message.guild.joinedAt.toDateString())
       .addField("Account Creation Date:", message.author.createdAt)
       .setColor(0x9999FF)
-      .setThumbnail(message.author.avatarURL)
       .setFooter('Join dates may not be accurate if the member has rejoined')
       message.channel.sendEmbed(embed);
   }
