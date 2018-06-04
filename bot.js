@@ -53,6 +53,19 @@ client.on('message', message => {
           message.reply(doCoinFlip() + '.');
       }
   
+    // Avatar Command
+    if (command === '$avatar') {
+        let user = message.mentions.users.first();
+        const unmentionedEmbed = new Discord.RichEmbed()
+        .setImage("message.author.avatarURL")
+        if (message.mentions.users.size < 1) return message.channel.sendEmbed(unmentionedEmbed)
+        const mentionedEmbed = new Discord.RichEmbed()
+        .setImage("user.avatarURL")
+        .setFooter("Requested by: " + message.author.username) message.channel.sendEmbed(mentionedEmbed);
+    }
+        
+    
+    
     // User Info Command
   if (command === '$info') {
       const userGame = message.author.presence.game;
