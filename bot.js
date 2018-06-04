@@ -22,10 +22,10 @@ client.on('message', message => {
         }
     };
     
-    // Set Streaming
+    // Playing Type
     if (command === '$stream') {
         const streamSet = args.join(" ");
-        client.user.setPresence({ game: {name: streamSet 'https://www.twitch.tv/MetaBot', type: 1} });
+        client.user.setPresence({ game: { type: 1} });
     };
     
     // Set Status
