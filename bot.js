@@ -23,7 +23,7 @@ client.on('message', message => {
     };
     
     // Set Streaming
-    if {command === '$stream') {
+    if (command === '$stream') {
         const streamSet = args.join(" ");
         client.user.setPresence({ 'ok', 'https://www.twitch.tv/MetaBot'});
     };
