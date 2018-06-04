@@ -13,7 +13,7 @@ client.on('message', message => {
     if (command === '$setgame') {
         const gameSet = args.join(" ");
         if (gameSet === 'reset' || message.content === '$setgame') {
-            message.reply('Game has been reset!')
+            message.reply('Game has been reset.')
             client.user.setPresence({ game: { name: null, type: 0} });
         } else {
             client.user.setPresence({ game: { name: gameSet, type: 0} });
@@ -25,23 +25,24 @@ client.on('message', message => {
         const statusSet = args.join(" ");
         if (statusSet === 'reset' || statusSet === 'online' || message.content === '$setstatus') {
             message.reply('Status set to: ``' + 'online' + '``')
-            client.user.setPresence({ status: 'online' });
+            return client.user.setPresence({ status: 'online' });
         }
         if (statusSet === 'idle') {
             message.reply('Status set to: ``' + (statusSet) + '``');
-            client.user.setPresence({ status: 'idle' });
+            return client.user.setPresence({ status: 'idle' });
         }
         if (statusSet === 'dnd') {
             message.reply('Status set to: ``' + (statusSet) + '``');
-            client.user.setPresence({ status: 'dnd' });
+            return client.user.setPresence({ status: 'dnd' });
         }
         if (statusSet === 'offline' || statusSet === 'invisible') {
             message.reply('Status set to: ``' + (statusSet) + '``');
-            client.user.setPresence({ status: 'invisible' });
-        }
-        if (statusSet != 'offline' || statusSet != 'invisible' || statusSet != 'reset' || statusSet != 'online' || statusSet != 'idle' || statusSet != 'dnd') {
+            return client.user.setPresence({ status: 'invisible' });
+        } else {
             message.reply('Please specify a status.')
         }
+        
+        
     };
     
       // Say Command
