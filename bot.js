@@ -41,15 +41,30 @@ client.on('message', message => {
       let user = message.mentions.users.first();
       const userGame = message.author.presence.game.name;
       const embed = new Discord.RichEmbed()
+      const untaggedembed = new Discord.RichEmbed()
       .setTitle(`${message.author.avatar}${message.author.username}#${message.author.discriminator}`)
       .addField("Status:", message.author.presence.status)
       .addField("Current Game", userGame !== null ? userGame : "None", true)
-      .addField("Bot:", "ok")
       .addField("Guild Join Date:", message.guild.joinedAt.toDateString())
       .addField("Account Creation Date:", message.author.createdAt)
       .setColor(0x9999FF)
+      .setThumbnail(message.author.avatarURL)
       .setFooter('Join dates may not be accurate if the member has rejoined')
-      message.channel.sendEmbed(embed);
+      message.channel.sendEmbed(untaggedembed);
+      if (message.mentions.users.size < 1) return message.channel.sendEmbed(untaggedembed)
+      const userGame2 = user.game.name
+       // If a user is tagged
+      const taggedembed = new Discord.RichEmbed()
+      .setTitle(`${message.author.avatar}${message.author.username}#${message.author.discriminator}`)
+      .addField("Status:", message.author.presence.status)
+      .addField("Current Game", userGame2 !== null ? userGame : "None", true)
+      .addField("Bot:", user.bot)
+      .addField("Guild Join Date:", message.guild.joinedAt.toDateString())
+      .addField("Account Creation Date:", message.author.createdAt)
+      .setColor(0x9999FF)
+      .setThumbnail(user.avatarURL)
+      .setFooter('Join dates may not be accurate if the member has rejoined')
+      message.channel.sendEmbed(taggedembed);
   }
 
 });
