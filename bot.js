@@ -35,9 +35,12 @@ client.on('message', message => {
             message.reply('Status set to: ``' + (statusSet) + '``');
             client.user.setPresence({ status: 'dnd' });
         }
-        if (statusSet === 'offline') {
+        if (statusSet === 'offline' || statusSet === 'invisible') {
             message.reply('Status set to: ``' + (statusSet) + '``');
-            client.user.setPresence({ status: 'offline' });
+            client.user.setPresence({ status: 'invisible' });
+        }
+        if (statusSet != 'offline' or 'invisible' or 'reset' or 'online' or 'idle' or 'dnd') {
+            message.reply('Please specify a status.')
         }
     };
     
