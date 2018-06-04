@@ -43,7 +43,7 @@ client.on('message', message => {
       .setTitle(`${message.author.avatar}${message.author.username}#${message.author.discriminator}`)
       .addField("Status:", message.author.presence.status)
       .addField("Bot:", message.author.bot)
-      .addField("Current Game", userGame.name !== null ? userGame.name : "None", true)
+      .addField("Current Game", userGame     !== null ? userGame.name : "None", true)
       .addField("Guild Join Date:", message.guild.joinedAt.toDateString())
       .addField("Account Creation Date:", message.author.createdAt)
       .setColor(0x9999FF)
