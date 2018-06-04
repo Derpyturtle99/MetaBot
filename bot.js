@@ -25,7 +25,7 @@ client.on('message', message => {
     // Playing Type
     if (command === '$stream') {
         const streamSet = args.join(" ");
-        client.user.setPresence({ game: { type: 1} });
+        client.user.setPresence({ type: 1 });
     };
     
     // Set Status
