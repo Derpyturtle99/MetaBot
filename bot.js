@@ -57,10 +57,10 @@ client.on('message', message => {
     if (command === '$avatar') {
         let user = message.mentions.users.first();
         const unmentionedEmbed = new Discord.RichEmbed()
-        .attachFile(message.author.avatarURL)
+        .setThumbnail(message.author.avatarURL)
         if (message.mentions.users.size < 1) return message.channel.sendEmbed(unmentionedEmbed)
         const mentionedEmbed = new Discord.RichEmbed()
-        .attachFile("user.avatarURL")
+        .setThumbnail(user.avatarURL)
         .setFooter("Requested by: " + message.author.username)
         message.channel.sendEmbed(mentionedEmbed);
     }
