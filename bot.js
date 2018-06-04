@@ -38,10 +38,9 @@ client.on('message', message => {
   
     // User Info Command
   if (command === '$info') {
-      const avatarTitle = message.author.avatar
       const userGame = message.author.presence.game;
       const embed = new Discord.RichEmbed()
-      .setTitle(avatarTitle ${message.author.username}#${message.author.discriminator}`)
+      .setTitle(`${message.author.avatarURL} ${message.author.username}#${message.author.discriminator}`)
       .addField("Status:", message.author.presence.status)
       .addField("Bot:", message.author.bot)
       .addField("Game:", userGame !== null ? userGame.name : "None", true)
