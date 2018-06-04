@@ -1,7 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 client.on('ready', () => {
-    client.user.setPresence({ game: "Discord Adventures", type: 0 });
     console.log('I am ready!');
 });
 
@@ -35,6 +34,15 @@ client.on('message', message => {
       const sayMessage = args.join(" ");
       message.delete().catch(O_o=>{}); 
       message.channel.send(sayMessage);
+    }
+    
+    // Dice Command
+    if (command === '!dice') {
+        function doDice() {
+    var diceAnswer = ['1', '2', '3', '4', '5', '6'];
+    return diceAnswer[Math.floor(Math.random()*diceAnswer.length)];
+        }
+       message.reply(doDice() + '!');
     }
   
     // User Info Command
