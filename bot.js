@@ -66,12 +66,12 @@ client.on('message', message => {
     if (command === '$avatar') {
         let user = message.mentions.users.first();
         const unmentionedEmbed = new Discord.RichEmbed()
-        .setTitle(`${message.author.username}#${mesage.author.discriminator}'s avatar`)
+        .setTitle(`${message.author.username}#${message.author.discriminator}'s avatar`)
         .setImage(message.author.avatarURL)
         .setColor(0x9999FF)
         if (message.mentions.users.size < 1) return message.channel.sendEmbed(unmentionedEmbed)
         const mentionedEmbed = new Discord.RichEmbed()
-        .setTitle(`${message.author.username}#${mesage.author.discriminator}'s avatar`)
+        .setTitle(`${message.author.username}#${message.author.discriminator}'s avatar`)
         .setImage(user.avatarURL)
         .setColor(0x9999FF)
         .setFooter("Requested by: " + message.author.username)
