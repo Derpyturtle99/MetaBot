@@ -52,15 +52,25 @@ client.on('message', message => {
           }
           message.reply(doCoinFlip() + '.');
       }
+    
+    // 8 Ball Command
+    if (command === '$8ball') {
+        function doBall() {
+            var ballAnswer = ["It is certain", "It is decidedly so", "Without a doubt", "Yes definitely", "You may rely on it", "As I see it, yes", "Most likely", "Outlook good", "Yes", "Signs point to yes", "Reply hazy try again", "Ask again later", "Better not tell you now", "Cannot predict now", "Concentrate and ask again", "Don't count on it", "My reply is no", "My sources say no", "Outlook not so good", "Very doubtful"];
+            return ballAnswer[Math.floor(Math.random()*ballAnswer.length)];
+        }
+        message.reply(doBall() + '.');
   
     // Avatar Command
     if (command === '$avatar') {
         let user = message.mentions.users.first();
         const unmentionedEmbed = new Discord.RichEmbed()
         .setImage(message.author.avatarURL)
+        .setColor(0x9999FF)
         if (message.mentions.users.size < 1) return message.channel.sendEmbed(unmentionedEmbed)
         const mentionedEmbed = new Discord.RichEmbed()
         .setImage(user.avatarURL)
+        .setColor(0x9999FF)
         .setFooter("Requested by: " + message.author.username)
         message.channel.sendEmbed(mentionedEmbed);
     }
