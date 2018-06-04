@@ -39,11 +39,9 @@ client.on('message', message => {
     // User Info Command
   if (command === '$info') {
       let user = message.mentions.users.first();
-      const userGame = message.author.presence.game
       const embed = new Discord.RichEmbed()
       .setTitle(`${message.author.avatar}${message.author.username}#${message.author.discriminator}`)
       .addField("Status:", message.author.presence.status)
-      .addField("Current Game", userGame !== null ? userGame : "None", true)
       .addField("Bot:", user.bot)
       .addField("Guild Join Date:", message.guild.joinedAt.toDateString())
       .addField("Account Creation Date:", message.author.createdAt)
