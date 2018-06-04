@@ -10,7 +10,8 @@ client.on('message', message => {
     const command = args.shift().toLowerCase();
     if(message.author.id !== "350427539493093377") return;
     
-    if (command === '$setgame') {
+    // Set Game
+    if (command === '$game') {
         const gameSet = args.join(" ");
         if (gameSet === 'reset' || message.content === '$setgame') {
             message.reply('Game has been reset.')
@@ -21,7 +22,8 @@ client.on('message', message => {
         }
     };
     
-    if  (command === '$setstatus') {
+    // Set Status
+    if  (command === '$status') {
         const statusSet = args.join(" ");
         if (statusSet === 'reset' || statusSet === 'online' || message.content === '$setstatus') {
             message.reply('Status set to: ``' + 'online' + '``')
@@ -41,9 +43,12 @@ client.on('message', message => {
         } else {
             message.reply('Please specify a status.')
         }
-        
-        
     };
+    
+    if (command === '$stream') {
+        const streamSet = args.join(" ");
+        client.user.setPresence({ `${streamSet}`, 'https://www.twitch.tv/MetaBot'});
+    }
     
       // Say Command
   if (command === '$say') {
