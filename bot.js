@@ -98,7 +98,7 @@ client.on('message', message => {
       if (message.mentions.users.size < 1) return message.channel.sendEmbed(unmentionedEmbed)
       // if member has been mentioned
       let user = message.mentions.users.first();
-      const userGame = user.game;
+      const userGame = user.presence.game;
       const mentionedEmbed = new Discord.RichEmbed()
       .setTitle(`${user.username}#${user.discriminator}`)
       .addField("Status:", user.status)
