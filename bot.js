@@ -48,7 +48,6 @@ client.on('message', message => {
       .addField("Account Creation Date:", message.author.createdAt)
       .setColor(0x9999FF)
       .setFooter('Join dates may not be accurate if the member has rejoined')
-      .setThumbnail(message.author.avatar.width(100).height(100))
       message.channel.sendEmbed(embed);
   }
 
