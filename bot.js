@@ -38,10 +38,6 @@ client.on('message', message => {
     
     // Dice Command
     if (command === '!dice') {
-        function doDice() {
-    var diceAnswer = ['1', '2', '3', '4', '5', '6'];
-    return diceAnswer[Math.floor(Math.random()*diceAnswer.length)];
-        }
        message.reply(doDice() + '!');
     }
   
@@ -59,6 +55,12 @@ client.on('message', message => {
       .setFooter('Join dates may not be accurate if the member has rejoined')
       message.channel.sendEmbed(embed);
   }
-
 });
+
+// Functions
+function doDice() {
+    var diceAnswer = ['1', '2', '3', '4', '5', '6'];
+    return diceAnswer[Math.floor(Math.random()*diceAnswer.length)];
+}
+
 client.login(process.env.BOT_TOKEN);
