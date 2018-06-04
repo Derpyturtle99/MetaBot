@@ -86,16 +86,29 @@ client.on('message', message => {
     // User Info Command
   if (command === '$info') {
       const userGame = message.author.presence.game;
-      const embed = new Discord.RichEmbed()
+      const unmentionedEmbed = new Discord.RichEmbed()
       .setTitle(`${message.author.username}#${message.author.discriminator}`)
       .addField("Status:", message.author.presence.status)
       .addField("Bot:", message.author.bot)
-      .addField("Game:", userGame !== null ? userGame.name : "None", true)
+      .addField("Game:", userGame !== null ? userGame.name : "none", true)
       .addField("Guild Join Date:", message.guild.joinedAt.toDateString())
       .addField("Account Creation Date:", message.author.createdAt)
       .setColor(0x9999FF)
       .setFooter('Join dates may not be accurate if the member has rejoined')
-      message.channel.sendEmbed(embed);
+      if (message.mentions.users.size < 1) return message.channel.sendEmbed(unmentionedEmbed)
+      // if member has been mentioned
+      const mentionedEmbed = new Discord.RichEmbed()
+      const userGame = user.game;
+      let user = message.mentions.users.first();
+      .setTitle(`${user.username}#${user.discriminator}`)
+      .addField("Status:", user.status)
+      .addField("Bot:", user.bot)
+      .addField("Game:", userGame !== null ? userGame.name : "none", true)
+      .addField("Guild Join Date:", user.guild.joinedAt.toDateString())
+      .addField("Account Creation Date:", user.createdAt)
+      .setColor(0x9999FF)
+      .setFooter('Join dates may not be accurate if the member has rejoined')
+      message.channel.sendEmbed(mentionedEmbed);
   }
     
 });
