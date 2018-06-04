@@ -40,7 +40,7 @@ client.on('message', message => {
   if (command === '$info') {
       const userGame = message.author.presence.game;
       const embed = new Discord.RichEmbed()
-      .setTitle(`${message.author.displayAvatarURL} ${message.author.username}#${message.author.discriminator}`)
+      .setTitle(`${message.author.username}#${message.author.discriminator}`)
       .addField("Status:", message.author.presence.status)
       .addField("Bot:", message.author.bot)
       .addField("Game:", userGame !== null ? userGame.name : "None", true)
@@ -48,6 +48,7 @@ client.on('message', message => {
       .addField("Account Creation Date:", message.author.createdAt)
       .setColor(0x9999FF)
       .setFooter('Join dates may not be accurate if the member has rejoined')
+      .setThumbnail(message.author.avatar.width(100).height(100))
       message.channel.sendEmbed(embed);
   }
 
