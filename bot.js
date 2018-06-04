@@ -97,8 +97,8 @@ client.on('message', message => {
       .setFooter('Join dates may not be accurate if the member has rejoined')
       if (message.mentions.users.size < 1) return message.channel.sendEmbed(unmentionedEmbed)
       // if member has been mentioned
-      const userGame = user.game;
       let user = message.mentions.users.first();
+      const userGame = user.game;
       const mentionedEmbed = new Discord.RichEmbed()
       .setTitle(`${user.username}#${user.discriminator}`)
       .addField("Status:", user.status)
