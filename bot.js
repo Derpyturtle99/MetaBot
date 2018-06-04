@@ -46,7 +46,7 @@ client.on('message', message => {
     }
     
     // Coinflip Command
-      if (command === '!cf' || command === '!coinflip') {
+      if (command === '$cf' || command === '$coinflip') {
           function doCoinFlip() {
           var coinAnswer = ['Heads', 'Tails'];
           return coinAnswer[Math.floor(Math.random()*coinAnswer.length)];
