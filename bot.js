@@ -20,21 +20,20 @@ client.on('message', message => {
             message.reply('Game set to: ``' + (gameSet) + '``');
         }
     }
-        
-
+    
+      // Say Command
+  if (command === '$say') {
+      const sayMessage = args.join(" ");
+      message.delete().catch(O_o=>{}); 
+      message.channel.send(sayMessage);
+    }
+    
 });
 // COMMANDS
 client.on('message', message => {
   if(message.author.bot) return;
   const args = message.content.slice(process.prefix).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
-  
-  // Say Command
-  if (command === '$say') {
-      const sayMessage = args.join(" ");
-      message.delete().catch(O_o=>{}); 
-      message.channel.send(sayMessage);
-    }
     
     // Dice Command
     if (command === '$dice') {
@@ -42,7 +41,7 @@ client.on('message', message => {
         var diceAnswer = ['1', '2', '3', '4', '5', '6'];
         return diceAnswer[Math.floor(Math.random()*diceAnswer.length)];
         }
-        message.reply(doDice() + '!');
+        message.reply(doDice() + '.');
     }
     
     // Coinflip Command
@@ -51,7 +50,7 @@ client.on('message', message => {
           var coinAnswer = ['Heads', 'Tails'];
           return coinAnswer[Math.floor(Math.random()*coinAnswer.length)];
           }
-          message.reply(doCoinFlip() + '!');
+          message.reply(doCoinFlip() + '.');
       }
   
     // User Info Command
