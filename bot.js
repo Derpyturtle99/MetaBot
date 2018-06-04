@@ -61,7 +61,8 @@ client.on('message', message => {
         if (message.mentions.users.size < 1) return message.channel.sendEmbed(unmentionedEmbed)
         const mentionedEmbed = new Discord.RichEmbed()
         .setImage("user.avatarURL")
-        .setFooter("Requested by: " + message.author.username) message.channel.sendEmbed(mentionedEmbed);
+        .setFooter("Requested by: " + message.author.username)
+        message.channel.sendEmbed(mentionedEmbed);
     }
         
     
