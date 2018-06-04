@@ -39,7 +39,7 @@ client.on('message', message => {
     // User Info Command
   if (command === '$info') {
       let user = message.mentions.users.first();
-      const userGame = message.author.presence.game
+      const userGame = message.author.presence.game.name;
       const embed = new Discord.RichEmbed()
       .setTitle(`${message.author.avatar}${message.author.username}#${message.author.discriminator}`)
       .addField("Status:", message.author.presence.status)
