@@ -8,10 +8,10 @@ client.on('ready', () => {
 client.on('message', message => {
     const args = message.content.slice(process.prefix).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
-    const gameSet = args.join(" ");
     if(message.author.id !== "350427539493093377") return;
     
     if (command === '$setgame') {
+        const gameSet = args.join(" ");
         if (gameSet === 'reset' || message.content === '$setgame') {
             message.reply('Game has been reset!')
             client.user.setPresence({ game: { name: null, type: 0} });
@@ -19,7 +19,27 @@ client.on('message', message => {
             client.user.setPresence({ game: { name: gameSet, type: 0} });
             message.reply('Game set to: ``' + (gameSet) + '``');
         }
-    }
+    };
+    
+    if  (command === '$setstatus') {
+        const statusSet = args.join(" ");
+        if (statusSet === 'reset' || statusSet === 'online' || message.content === '$setstatus') {
+            message.reply('Status set to: ``' + 'online' + '``')
+            client.user.setPresence({ status: 'online'} });
+        }
+        if (statusSet === 'idle') {
+            message.reply('Status set to: ``' + (statusSet) + '``');
+            client.user.setPresence({ status: 'idle'} });
+        }
+        if (statusSet === 'dnd') {
+            message.reply('Status set to: ``' + (statusSet) + '``');
+            client.user.setPresence({ status: 'dnd'} });
+        }
+        if (statusSet === 'offline') {
+            message.reply('Status set to: ``' + (statusSet) + '``');
+            client.user.setPresence({ status: 'offline'} });
+        }
+    };
     
       // Say Command
   if (command === '$say') {
