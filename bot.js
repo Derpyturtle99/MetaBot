@@ -25,15 +25,15 @@ client.on('message', message => {
         const statusSet = args.join(" ");
         if (statusSet === 'reset' || statusSet === 'online' || message.content === '$setstatus') {
             message.reply('Status set to: ``' + 'online' + '``')
-            return client.user.setPresence({ status: 'online' });
+            client.user.setPresence({ status: 'online' });
         }
         if (statusSet === 'idle') {
             message.reply('Status set to: ``' + (statusSet) + '``');
-            return client.user.setPresence({ status: 'idle' });
+            client.user.setPresence({ status: 'idle' });
         }
         if (statusSet === 'dnd') {
             message.reply('Status set to: ``' + (statusSet) + '``');
-            return client.user.setPresence({ status: 'dnd' });
+            client.user.setPresence({ status: 'dnd' });
         }
         if (statusSet === 'offline' || statusSet === 'invisible') {
             message.reply('Status set to: ``' + (statusSet) + '``');
