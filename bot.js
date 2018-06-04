@@ -60,15 +60,18 @@ client.on('message', message => {
             return ballAnswer[Math.floor(Math.random()*ballAnswer.length)];
         }
         message.reply(doBall() + '.');
+    };
   
     // Avatar Command
     if (command === '$avatar') {
         let user = message.mentions.users.first();
         const unmentionedEmbed = new Discord.RichEmbed()
+        .setTitle(`${mesage.author.username}#${mesage.author.discriminator}'s avatar`)
         .setImage(message.author.avatarURL)
         .setColor(0x9999FF)
         if (message.mentions.users.size < 1) return message.channel.sendEmbed(unmentionedEmbed)
         const mentionedEmbed = new Discord.RichEmbed()
+        .setTitle(`${mesage.author.username}#${mesage.author.discriminator}'s avatar`)
         .setImage(user.avatarURL)
         .setColor(0x9999FF)
         .setFooter("Requested by: " + message.author.username)
