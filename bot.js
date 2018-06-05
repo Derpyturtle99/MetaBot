@@ -12,12 +12,19 @@ client.on('message', message => {
     
     // Restart Bot
     if (command === '$restart') {
+        function wait(ms){
+        var start = new Date().getTime();
+        var end = start;
+        while(end < start + ms) {
+        end = new Date().getTime();
+        }
+   }
         console.log('Restart Requested')
         client.destroy()
         .then(client.login(process.env.BOT_TOKEN))
         .then(client.on('ready', () => {
-            client.user.setPresence({ game: { name: 'Restarted', type: 1} });
-            sleep(4000);
+            client.user.setPresence({ game: { name: 'Restarting...', type: 1} });
+            wait(4000);
             client.user.setPresnce({ game: { name: null, type: 0} });
         }))
     };
