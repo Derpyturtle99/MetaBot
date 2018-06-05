@@ -67,8 +67,8 @@ client.on('message', message => {
             endTime = Date.now();
             let ping = Math.round(endTime - startTime)
             let rounded = ping / 1000
-            message.edit(`Pinging... | ${ping}ms | ${rounded} seconds.`)
-            console.log(`Pinged by ${author}.`)
+            message.edit(`${ping}ms | ${rounded} seconds.`)
+            console.log(`Pinged by ${message.author}.`)
         });
     };
     
