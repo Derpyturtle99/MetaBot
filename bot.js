@@ -4,29 +4,6 @@ client.on('ready', () => {
     console.log('I am ready!');
 });
 
-client.on('message', message => {
-    switch(message.content.toUpperCase()) {
-        case '?RESET':
-            resetBot(message.channel);
-            break;
-
-        // ... other commands
-    }
-});
-
-// Turn bot off (destroy), then turn it back on
-function resetBot(channel) {
-    // send channel a message that you're resetting bot [optional]
-    channel.send('Resetting...')
-    .then(msg => client.destroy())
-    .then(() => client.login(process.env.BOT_TOKEN));
-}
-
-
-
-
-
-
 // CONFIG COMMANDS
 client.on('message', message => {
     const args = message.content.slice(process.prefix).trim().split(/ +/g);
@@ -41,7 +18,6 @@ client.on('message', message => {
             .then(() => client.login(process.env.BOT_TOKEN));
         }
         resetBot(message.channel);
-        break;
     };
     
     // Set Game
