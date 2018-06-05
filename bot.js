@@ -15,6 +15,11 @@ client.on('message', message => {
         console.log('Restart Requested')
         client.destroy()
         .then(client.login(process.env.BOT_TOKEN))
+        .then(client.on('ready', () => {
+            client.user.setPresence({ game: { name: 'Restarted', type: 1} });
+            sleep(4000);
+            client.user.setPresnce({ game: { name: null, type: 0} });
+        }
     };
     
     // Set Game
