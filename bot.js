@@ -10,6 +10,15 @@ client.on('message', message => {
     const command = args.shift().toLowerCase();
     if(message.author.id !== "350427539493093377") return;
     
+    // Restart Bot
+    if (command === '$restart') {
+        function resetBot(channel) {
+            message.channel.send('Restarting...')
+            .then(message => client.destroy())
+            .then(() => client.login(process.env.BOT_TOKEN));
+        }
+    };
+    
     // Set Game
     if (command === '$game') {
         const gameSet = args.join(" ");
