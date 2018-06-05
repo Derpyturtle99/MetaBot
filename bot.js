@@ -67,7 +67,7 @@ client.on('message', message => {
             endTime = Date.now();
             let ping = Math.round(endTime - startTime)
             let rounded = ping / 1000
-            message.edit(`${ping}ms.`)
+            message.edit(`${ping}ms | ${rounded} seconds.`)
             console.log(`Ping outcome is ${ping}ms | ${rounded} seconds.`)
         });
     };
@@ -110,6 +110,13 @@ client.on('message', message => {
         .setImage(message.author.avatarURL)
         .setColor(0x9999FF)
         if (message.mentions.users.size < 1) return message.channel.sendEmbed(unmentionedEmbed)
+        if (idRegex.test(args[0])) {
+				try { user = await message.client.fetchUser(args[0].match(idRegex)[0]); }
+				catch (err) { return message.channel.send(`Could not locate user **${args[0]}** from ID argument.`); }
+			}
+		} else {
+			return message.channel.send(`No users found. Please specify a User ID.`);
+		}
         const mentionedEmbed = new Discord.RichEmbed()
         .setTitle(`${user.username}#${user.discriminator}'s avatar`)
         .setImage(user.avatarURL)
