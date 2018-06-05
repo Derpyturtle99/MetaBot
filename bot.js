@@ -34,7 +34,15 @@ client.on('message', message => {
     if(message.author.id !== "350427539493093377") return;
     
     // Restart Bot
-
+    if (command === '$restart') {
+        function resetBot(channel) {
+            console.log(`Restart Requested at ${Date.now}.`)
+            .then(msg => client.destroy())
+            .then(() => client.login(process.env.BOT_TOKEN));
+        }
+        resetBot(message.channel);
+        break;
+    };
     
     // Set Game
     if (command === '$game') {
