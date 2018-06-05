@@ -61,9 +61,16 @@ client.on('message', message => {
     
     // Ping Command
     if(command === "$ping") {
-    const m = async message.channel.send("pinging...");
-    m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
-  }
+    console.log('pinging...')
+        startTime = Date.now();
+        message.channel.send("Pinging...").then((message) => {
+            endTime = Date.now();
+            let ping = Math.round(endTime - startTime)
+            let rounded = ping / 1000
+            message.edit(`Pinging... | ${ping}ms | ${rounded} seconds.`)
+            console.log(`Pinged by ${author}.`)
+        )};
+    }
     
     // Dice Command
     if (command === '$dice') {
