@@ -19,7 +19,7 @@ client.on('message', message => {
             client.user.setPresence({ game: { name: 'Restarted', type: 1} });
             sleep(4000);
             client.user.setPresnce({ game: { name: null, type: 0} });
-        })
+        }))
     };
     
     // Set Game
