@@ -104,19 +104,12 @@ client.on('message', message => {
   
     // Avatar Command
     if (command === '$avatar') {
-        let user = message.mentions.users.first();
+        let user = message.mentions.users.first() || idRegex.test(args[0])
         const unmentionedEmbed = new Discord.RichEmbed()
         .setTitle(`${message.author.username}#${message.author.discriminator}'s avatar`)
         .setImage(message.author.avatarURL)
         .setColor(0x9999FF)
         if (message.mentions.users.size < 1) return message.channel.sendEmbed(unmentionedEmbed)
-        if (idRegex.test(args[0])) {
-				try { user = await message.client.fetchUser(args[0].match(idRegex)[0]); }
-				catch (err) { return message.channel.send(`Could not locate user **${args[0]}** from ID argument.`); }
-			}
-		} else {
-			return message.channel.send(`No users found. Please specify a User ID.`);
-		}
         const mentionedEmbed = new Discord.RichEmbed()
         .setTitle(`${user.username}#${user.discriminator}'s avatar`)
         .setImage(user.avatarURL)
