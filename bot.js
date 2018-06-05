@@ -34,7 +34,7 @@ client.on('message', message => {
     // Set Game
     if (command === '$game') {
         const gameSet = args.join(" ");
-        if (gameSet === 'reset' || message.content === '$setgame') {
+        if (gameSet === 'reset' || message.content === '$game') {
             message.reply('Game has been reset.')
             client.user.setPresence({ game: { name: null, type: 0} });
         } else {
@@ -46,7 +46,7 @@ client.on('message', message => {
     // Set Status
     if  (command === '$status') {
         const statusSet = args.join(" ");
-        if (statusSet === 'reset' || statusSet === 'online' || message.content === '$setstatus') {
+        if (statusSet === 'reset' || statusSet === 'online' || message.content === '$status') {
             message.reply('Status set to: ``' + 'online' + '``')
             return client.user.setPresence({ status: 'online' });
         }
