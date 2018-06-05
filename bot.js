@@ -59,6 +59,12 @@ client.on('message', message => {
   const args = message.content.slice(process.prefix).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
     
+    // Ping Command
+    if(command === "$ping") {
+    const m = await message.channel.send("pinging...");
+    m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
+  }
+    
     // Dice Command
     if (command === '$dice') {
         function doDice() {
@@ -104,8 +110,6 @@ client.on('message', message => {
         .setFooter("Requested by: " + `${message.author.username}#${message.author.discriminator}`)
         message.channel.sendEmbed(mentionedEmbed);
     }
-        
-    
     
     // User Info Command
   if (command === '$info') {
@@ -116,7 +120,7 @@ client.on('message', message => {
       .addField("Bot:", message.author.bot)
       .addField("Playing:", memberGame !== null ? memberGame.name : "none", true)
       .addField("Guild Join Date:", message.guild.joinedAt.toDateString())
-      .addField("Account Creation Date:", message.author.createdAt.toDateString())
+      .addField("Account Creation Date:", message.author.createdAt)
       .setColor(0x9999FF)
       .setFooter('Join dates may not be accurate if the member has rejoined')
       if (message.mentions.users.size < 1) return message.channel.sendEmbed(unmentionedEmbed)
