@@ -22,12 +22,6 @@ client.on('message', message => {
         }
     };
     
-    // Playing Type
-    if (command === '$stream') {
-        const streamSet = args.join(" ");
-        client.user.setPresence({ type: 1 });
-    };
-    
     // Set Status
     if  (command === '$status') {
         const statusSet = args.join(" ");
@@ -120,9 +114,9 @@ client.on('message', message => {
       .setTitle(`${message.author.username}#${message.author.discriminator}`)
       .addField("Status:", message.author.presence.status)
       .addField("Bot:", message.author.bot)
-      .addField("Game:", memberGame !== null ? memberGame.name : "none", true)
+      .addField("Playing:", memberGame !== null ? memberGame.name : "none", true)
       .addField("Guild Join Date:", message.guild.joinedAt.toDateString())
-      .addField("Account Creation Date:", message.author.createdAt)
+      .addField("Account Creation Date:", message.author.createdAt.toDateString())
       .setColor(0x9999FF)
       .setFooter('Join dates may not be accurate if the member has rejoined')
       if (message.mentions.users.size < 1) return message.channel.sendEmbed(unmentionedEmbed)
@@ -133,7 +127,7 @@ client.on('message', message => {
       .setTitle(`${user.username}#${user.discriminator}`)
       .addField("Status:", user.presence.status)
       .addField("Bot:", user.bot)
-      .addField("Game:", userGame !== null ? userGame.name : "none", true)
+      .addField("Playing:", userGame !== null ? userGame.name : "none", true)
       .addField("Guild Join Date:", message.guild.joinedAt.toDateString())
       .addField("Account Creation Date:", user.createdAt)
       .setColor(0x9999FF)
