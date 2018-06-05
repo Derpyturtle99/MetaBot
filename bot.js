@@ -13,8 +13,8 @@ client.on('message', message => {
     // Restart Bot
     if (command === '$restart') {
         console.log(`Restart Requested at ${Date.now}.`)
-        client.destroy())
-        client.login(process.env.BOT_TOKEN));
+        client.destroy()
+        client.login(process.env.BOT_TOKEN);
     };
     
     // Set Game
