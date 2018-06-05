@@ -15,7 +15,6 @@ client.on('message', message => {
         console.log('Restart Requested')
         client.destroy()
         .then(client.login(process.env.BOT_TOKEN))
-        .then(message.channel.send('Restarted.'))
     };
     
     // Set Game
