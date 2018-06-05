@@ -69,8 +69,8 @@ client.on('message', message => {
             let rounded = ping / 1000
             message.edit(`Pinging... | ${ping}ms | ${rounded} seconds.`)
             console.log(`Pinged by ${author}.`)
-        )};
-    }
+        });
+    };
     
     // Dice Command
     if (command === '$dice') {
