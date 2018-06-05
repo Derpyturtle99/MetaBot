@@ -13,9 +13,9 @@ client.on('message', message => {
     // Restart Bot
     if (command === '$restart') {
         console.log('Restart Requested')
-        message.channel.send('ay')
-        .then(msg => client.destroy())
-        .then(() => client.loginprocess.env.BOT_TOKEN);
+        client.destroy())
+        client.loginprocess.env.BOT_TOKEN)
+        .then message.channel.send('Restarted.')
     };
     
     // Set Game
