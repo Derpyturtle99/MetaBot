@@ -104,7 +104,7 @@ client.on('message', message => {
   
     // Avatar Command
     if (command === '$avatar') {
-        let user = message.mentions.users.first() || idRegex.test(args[0])
+        let user = message.mentions.users.first();
         const unmentionedEmbed = new Discord.RichEmbed()
         .setTitle(`${message.author.username}#${message.author.discriminator}'s avatar`)
         .setImage(message.author.avatarURL)
