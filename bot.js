@@ -17,6 +17,12 @@ client.on('message', message => {
             .then(message => client.destroy())
             .then(() => client.login(process.env.BOT_TOKEN));
         }
+        switch(message.content.toUpperCase()) {
+        case '?RESET':
+            resetBot(message.channel);
+            break;
+    }
+});
     };
     
     // Set Game
