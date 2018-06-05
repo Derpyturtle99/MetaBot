@@ -13,8 +13,8 @@ client.on('message', message => {
     // Restart Bot
     if (command === '$restart') {
         console.log('Restart Requested')
-        client.destroy())
-        client.loginprocess.env.BOT_TOKEN)
+        client.destroy()
+        client.loginprocess.env.BOT_TOKEN
         .then message.channel.send('Restarted.')
     };
     
